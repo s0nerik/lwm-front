@@ -3,5 +3,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+    script(src='/static/webcomponentsjs/webcomponents.min.js')
+    block head
+  body(fullbleed)
     block content

@@ -1,5 +1,7 @@
 extends layout
 
+block head
+    link(href='/components/start-page-middle.html', rel='import')
+
 block content
-  h1= title
-  p Welcome to #{title}
+    start-page-middle#middle
