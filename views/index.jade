@@ -3,7 +3,40 @@ extends layout
 block head
     link(rel='import', href='/components/start-page-middle.html')
     link(rel='stylesheet', href='/stylesheets/index.css')
+    script(src="/static/jquery/dist/jquery.min.js" async defer)
+    script(src="https://apis.google.com/js/client:platform.js" async defer)
+    script.
+        function signinCallback(authResult) {
+            if (authResult['code']) {
+                console.log("Success")
+                // Hide the sign-in button now that the user is authorized, for example:
+                $('#signinButton').attr('style', 'display: none');
+
+                //- // Send the code to the server
+                //- $.ajax({
+                //-   type: 'POST',
+                //-   url: 'http://example.com/storeauthcode',
+                //-   contentType: 'application/octet-stream; charset=utf-8',
+                //-   success: function(result) {
+                //-     // Handle or verify the server response.
+                //-   },
+                //-   processData: false,
+                //-   data: authResult['code']
+                //- });
+            } else {
+                console.log("Error")
+                // There was an error.
+            }
+        }
 
 block content
-    a(href="/oauth/authenticate/google" class="google-btn animated bounceInDown delayed2_25")
+    //a(href='#' class='google-btn animated bounceInDown delayed2_25')
+    span#signinButton(class="animated bounceInDown delayed2_25")
+        span(class="g-signin"
+        data-callback="signinCallback"
+        data-clientid="608412075734-g1rs52is4nku7k5s7g3va1fnv74inidi.apps.googleusercontent.com"
+        data-cookiepolicy="single_host_origin"
+        data-requestvisibleactions="http://schema.org/AddAction"
+        data-scope="https://www.googleapis.com/auth/plus.login")
+
     start-page-middle#middle

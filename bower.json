@@ -1,0 +1,24 @@
+{
+  "name": "lwm-front",
+  "version": "0.0.0",
+  "authors": [
+    "sonerik <thesonerik@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate.css": "~3.2.6",
+    "core-animated-pages": "Polymer/core-animated-pages#~0.5.5",
+    "core-image": "Polymer/core-image#~0.5.5",
+    "ujiro-card": "~0.0.4",
+    "jquery": "~2.1.3",
+    "platform": "Polymer/platform#^0.4.0"
+  }
+}
