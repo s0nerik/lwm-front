@@ -1,7 +1,9 @@
 extends layout
 
 block head
-    link(href='/components/start-page-middle.html', rel='import')
+    link(rel='import', href='/components/start-page-middle.html')
+    link(rel='stylesheet', href='/stylesheets/index.css')
 
 block content
+    a(href="/oauth/authenticate/google" class="google-btn animated bounceInDown delayed2_25")
     start-page-middle#middle

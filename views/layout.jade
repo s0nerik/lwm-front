@@ -1,9 +1,11 @@
 doctype html
 html
+
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src='/static/webcomponentsjs/webcomponents.min.js')
     block head
-  body(fullbleed)
+
+  body(fullbleed, class="no-scrollbars")
     block content
