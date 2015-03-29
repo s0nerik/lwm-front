@@ -9,6 +9,7 @@ block head
     link(rel='import', href='/static/core-image/core-image.html')
     link(rel='import', href='/static/core-icons/av-icons.html')
     link(rel='import', href='/static/core-list/core-list.html')
+    link(rel='import', href='/static/core-pages/core-pages.html')
     //link(rel='import', href='/components/song-card.html')
     link(rel='stylesheet', href='/stylesheets/home.css')
     link(href='http://fonts.googleapis.com/css?family=Leckerli+One', rel='stylesheet', type='text/css')
@@ -28,15 +29,24 @@ block content
                             p.drawer_username.gradient-bottom {{user.name}}
                             span(flex)
                             core-icon.drawer-dropdown-btn(icon='arrow-drop-down-circle')
-                    core-menu(vertical layout flex selected='0', selecteditem='{{menuSelection}}')
-                        core-item(icon='history', label='Playback history')
-                        core-item(icon='favorite', label='Favorite songs')
-                        core-item(icon='av:queue-music', label='Playlists')
+                    core-menu(vertical layout flex selected='{{page}}', selecteditem='{{menuSelection}}' valueattr="route")
+                        core-item(route='history' icon='history', label='Playback history')
+                        core-item(route='favorites' icon='favorite', label='Favorite songs')
+                        core-item(route='playlists' icon='av:queue-music', label='Playlists')
                         span(flex)
-                        core-item(icon='settings', label='Settings')
+                        core-item(route='settings' icon='settings', label='Settings')
             span(tool) {{menuSelection.label}}
             .content
                 div(horizontal layout wrap style='padding: 8px;')
+                    core-pages(selected="{{page}}" valueattr="route")
+                        section(route="history")
+                            h1 Playback history
+                        section(route="favorites")
+                            h1 Favorite songs
+                        section(route="playlists")
+                            h1 Playlists
+                        section(route="settings")
+                            h1 Settings
 
     script.
         var template = document.querySelector('#tmpl');
