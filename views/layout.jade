@@ -1,11 +1,13 @@
 doctype html
 html
 
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='/static/webcomponentsjs/webcomponents.min.js')
-    block head
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='import', href='/static/core-localstorage/core-localstorage.html')
+        script(src='/static/webcomponentsjs/webcomponents.min.js')
+        script(src="/static/jquery/dist/jquery.min.js" async defer)
+        block head
 
-  body(fullbleed, class="no-scrollbars")
-    block content
+    body(fullbleed, class="no-scrollbars")
+        block content

@@ -3,7 +3,6 @@ extends layout
 block head
     link(rel='import', href='/components/start-page-middle.html')
     link(rel='stylesheet', href='/stylesheets/index.css')
-    script(src="/static/jquery/dist/jquery.min.js" async defer)
     script(src="https://apis.google.com/js/client:platform.js" async defer)
     script.
         function signinCallback(authResult) {
@@ -22,6 +21,8 @@ block head
                   },
                   success: function(result) {
                       console.log("Success: "+result.access_token);
+                      localStorage.setItem("token", result.access_token);
+                      localStorage.setItem("user", JSON.stringify(result.user));
                       window.location="/home";
                   },
                   failure: function(result) {

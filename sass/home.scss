@@ -33,3 +33,16 @@ core-scaffold core-toolbar {
   font-family: 'Noto Sans', sans-serif;
   color: white;
 }
+
+#header_panel {
+  width: $navDrawerWidth;
+}
+
+#avatar {
+  width: $navDrawerWidth;
+  height: $navDrawerWidth;
+}
+
+#avatar_view {
+  height: $navDrawerWidth;
+}
