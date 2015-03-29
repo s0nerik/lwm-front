@@ -5,10 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
-var cheerio = require('cheerio')
+var cheerio = require('cheerio');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var home = require('./routes/home');
 
 var app = express();
@@ -37,7 +36,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/static', express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/home', home);
 
 // catch 404 and forward to error handler
