@@ -8,23 +8,28 @@ block head
     script.
         function signinCallback(authResult) {
             if (authResult['code']) {
-                console.log("Success")
+                console.log("Success");
+                console.log(authResult);
                 // Hide the sign-in button now that the user is authorized, for example:
                 $('#signinButton').attr('style', 'display: none');
 
-                //- // Send the code to the server
-                //- $.ajax({
-                //-   type: 'POST',
-                //-   url: 'http://example.com/storeauthcode',
-                //-   contentType: 'application/octet-stream; charset=utf-8',
-                //-   success: function(result) {
-                //-     // Handle or verify the server response.
-                //-   },
-                //-   processData: false,
-                //-   data: authResult['code']
-                //- });
+                // Send the code to the server
+                $.ajax({
+                  type: 'GET',
+                  url: 'http://localhost:8080/oauth/callback/google_rest',
+                  data: {
+                    code: authResult['code']
+                  },
+                  success: function(result) {
+                    console.log("Success: "+result.access_token);
+                  },
+                  failure: function(result) {
+                    console.log("Fail: "+result);
+                  },
+                  processData: true
+                });
             } else {
-                console.log("Error")
+                console.log("Error");
                 // There was an error.
             }
         }
@@ -32,11 +37,11 @@ block head
 block content
     //a(href='#' class='google-btn animated bounceInDown delayed2_25')
     span#signinButton(class="animated bounceInDown delayed2_25")
-        span(class="g-signin"
+        span.g-signin(
         data-callback="signinCallback"
         data-clientid="608412075734-g1rs52is4nku7k5s7g3va1fnv74inidi.apps.googleusercontent.com"
-        data-cookiepolicy="single_host_origin"
-        data-requestvisibleactions="http://schema.org/AddAction"
+        data-cookiepolicy="single_host_origin",
+        data-accesstype=offline,
         data-scope="https://www.googleapis.com/auth/plus.login")
 
     start-page-middle#middle
