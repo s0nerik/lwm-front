@@ -21,7 +21,8 @@ block head
                     code: authResult['code']
                   },
                   success: function(result) {
-                    console.log("Success: "+result.access_token);
+                      console.log("Success: "+result.access_token);
+                      window.location="/home";
                   },
                   failure: function(result) {
                     console.log("Fail: "+result);
