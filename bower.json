@@ -30,6 +30,7 @@
     "more-routing": "Polymore/more-routing#~0.5.0",
     "core-pages": "Polymer/core-pages#~0.5.5",
     "page.js": "~1.6.1",
-    "grapp-rest-resource": "~0.0.9"
+    "grapp-rest-resource": "~0.0.9",
+    "jquery.rest": "~1.0.2"
   }
 }

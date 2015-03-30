@@ -4,6 +4,7 @@ block head
     title Welcome
     include home_elements
     link(rel='stylesheet', href='/stylesheets/home.css')
+    script(src="/static/jquery.rest/dist/1/jquery.rest.min.js" async defer)
     link(href='http://fonts.googleapis.com/css?family=Leckerli+One', rel='stylesheet', type='text/css')
     link(href='http://fonts.googleapis.com/css?family=Noto+Sans', rel='stylesheet', type='text/css')
 
@@ -45,9 +46,25 @@ block content
         template.user = JSON.parse(localStorage.getItem("user"));
         template.page = 'history';
 
+        var client = new $.RestClient('http://localhost:8080/api/', {
+            request: function (resource, options) {
+                options['beforeSend'] = function (request)
+                {
+                    request.setRequestHeader("Authorization", "Bearer "+localStorage.getItem("token"));
+                };
+                return $.ajax(options);
+            }
+        });
+        client.add('settings');
+
         template.selectAction = function (e, detail) {
             if (detail.isSelected) {
                 var selectedItem = detail.item;
-                console.log(selectedItem);
+                //console.log(selectedItem);
+
+                client.settings.read().done(function (data, textStatus, xhrObject) {
+                    console.log(data);
+                    console.log(textStatus);
+                });
             }
         }
