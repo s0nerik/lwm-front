@@ -21,7 +21,7 @@ block content
                             p.drawer_username.gradient-bottom {{user.name}}
                             span(flex)
                             core-icon.drawer-dropdown-btn(icon='arrow-drop-down-circle')
-                    core-menu(vertical layout flex selected='{{page}}', selecteditem='{{menuSelection}}' valueattr="route")
+                    core-menu#menu(vertical layout flex selected='{{page}}', selecteditem='{{menuSelection}}' valueattr="route" on-core-select="{{selectAction}}")
                         core-item(route='history' icon='history', label='Playback history')
                         core-item(route='favorites' icon='favorite', label='Favorite songs')
                         core-item(route='playlists' icon='av:queue-music', label='Playlists')
@@ -44,3 +44,10 @@ block content
         var template = document.querySelector('#tmpl');
         template.user = JSON.parse(localStorage.getItem("user"));
         template.page = 'history';
+
+        template.selectAction = function (e, detail) {
+            if (detail.isSelected) {
+                var selectedItem = detail.item;
+                console.log(selectedItem);
+            }
+        }

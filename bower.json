@@ -29,6 +29,7 @@
     "core-localstorage": "Polymer/core-localstorage#~0.5.5",
     "more-routing": "Polymore/more-routing#~0.5.0",
     "core-pages": "Polymer/core-pages#~0.5.5",
-    "page.js": "~1.6.1"
+    "page.js": "~1.6.1",
+    "grapp-rest-resource": "~0.0.9"
   }
 }
