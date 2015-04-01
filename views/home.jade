@@ -46,25 +46,33 @@ block content
         template.user = JSON.parse(localStorage.getItem("user"));
         template.page = 'history';
 
-        var client = new $.RestClient('http://localhost:8080/api/', {
+        var client = new $.RestClient('http://localhost:8080/', {
             request: function (resource, options) {
                 options['beforeSend'] = function (request)
                 {
                     request.setRequestHeader("Authorization", "Bearer "+localStorage.getItem("token"));
                 };
                 return $.ajax(options);
-            }
+            },
+            stringifyData: true
         });
-        client.add('settings');
+        client.add('me');
 
         template.selectAction = function (e, detail) {
             if (detail.isSelected) {
                 var selectedItem = detail.item;
                 //console.log(selectedItem);
 
-                client.settings.read().done(function (data, textStatus, xhrObject) {
+                client.cache.clear();
+
+                var user = JSON.parse(localStorage.getItem("user"));
+
+                user.settings = {stationName: "Hello"};
+
+                client.me.update(user).done(function (data, textStatus, xhrObject) {
                     console.log(data);
                     console.log(textStatus);
                 });
+
             }
         }
