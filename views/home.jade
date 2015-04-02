@@ -39,6 +39,8 @@ block content
                         h1 Playlists
                     section#settings(route="settings")
                         h1 Settings
+                #spinner-layout(horizontal layout center center-justified)
+                    paper-spinner#spinner
 
     script.
         var template = document.querySelector('#tmpl');
@@ -64,14 +66,11 @@ block content
 
                 switch (selectedItem.getAttribute("route")) {
                     case "history":
+                        $("#spinner").attr("active", "");
                         client.history.read().done(function (data, textStatus, xhrObject) {
                             console.log(data);
-                            //- $("#settings").historySongs = data.songs;
-                            //- document.querySelector('#tmpl').setAttribute("historySongs", JSON.stringify(data.songs));
-                            //- document.querySelector('#tmpl').historySongs = JSON.stringify(data.songs);
-                            //- document.querySelector("#history").setAttribute("songs", JSON.stringify(data.songs));
+                            $("#spinner").removeAttr("active");
                             template.historySongs = data;
-                            //- document.querySelector("#history").songs = data;
                         });
                         break;
                     case "settings":

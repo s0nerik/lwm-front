@@ -34,6 +34,7 @@
     "jquery.rest": "~1.0.2",
     "paper-shadow": "Polymer/paper-shadow#~0.5.5",
     "paper-ripple": "Polymer/paper-ripple#~0.5.5",
-    "paper-input": "Polymer/paper-input#~0.5.5"
+    "paper-input": "Polymer/paper-input#~0.5.5",
+    "paper-spinner": "Polymer/paper-spinner#~0.5.5"
   }
 }
