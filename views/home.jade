@@ -30,16 +30,15 @@ block content
                         core-item(route='settings' icon='settings', label='Settings')
             span(tool) {{menuSelection.label}}
             .content
-                div(horizontal layout wrap style='padding: 8px;')
-                    core-pages(selected="{{page}}" valueattr="route")
-                        section(route="history")
-                            h1 Playback history
-                        section(route="favorites")
-                            h1 Favorite songs
-                        section(route="playlists")
-                            h1 Playlists
-                        section(route="settings")
-                            h1 Settings
+                core-pages(selected="{{page}}" valueattr="route")
+                    section(route="history")
+                        playback-history#history(songs='{{historySongs}}')
+                    section#favorites(route="favorites")
+                        h1 Favorite songs
+                    section#playlists(route="playlists")
+                        h1 Playlists
+                    section#settings(route="settings")
+                        h1 Settings
 
     script.
         var template = document.querySelector('#tmpl');
@@ -57,22 +56,33 @@ block content
             stringifyData: true
         });
         client.add('me');
+        client.add('history');
 
         template.selectAction = function (e, detail) {
             if (detail.isSelected) {
                 var selectedItem = detail.item;
-                //console.log(selectedItem);
 
-                client.cache.clear();
-
-                var user = JSON.parse(localStorage.getItem("user"));
-
-                user.settings = {stationName: "Hello"};
-
-                client.me.update(user).done(function (data, textStatus, xhrObject) {
-                    console.log(data);
-                    console.log(textStatus);
-                });
+                switch (selectedItem.getAttribute("route")) {
+                    case "history":
+                        client.history.read().done(function (data, textStatus, xhrObject) {
+                            console.log(data);
+                            //- $("#settings").historySongs = data.songs;
+                            //- document.querySelector('#tmpl').setAttribute("historySongs", JSON.stringify(data.songs));
+                            //- document.querySelector('#tmpl').historySongs = JSON.stringify(data.songs);
+                            //- document.querySelector("#history").setAttribute("songs", JSON.stringify(data.songs));
+                            template.historySongs = data;
+                            //- document.querySelector("#history").songs = data;
+                        });
+                        break;
+                    case "settings":
+                        client.me.read().done(function (data, textStatus, xhrObject) {
+                            console.log(data);
+                            $("#settings").html("<settings-card title='Station settings'><paper-input label='Station name' floatingLabel='true'></paper-input></settings-card>")
+                        });
+                        break;
+                }
 
             }
         }
+
+        Polymer();

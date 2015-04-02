@@ -1,0 +1,75 @@
+link(rel='import', href='/static/polymer/polymer.html')
+link(rel='import', href='/static/core-animated-pages/core-animated-pages.html')
+link(href='http://fonts.googleapis.com/css?family=Leckerli+One', rel='stylesheet', type='text/css')
+link(href='http://fonts.googleapis.com/css?family=Noto+Sans', rel='stylesheet', type='text/css')
+polymer-element(name='start-page-middle')
+    template
+        link(rel='stylesheet', href='/static/animate.css/animate.min.css')
+        link(rel='stylesheet', href='/stylesheets/anim_timings.css')
+        style.
+            :host {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+            }
+            #section {
+                left: 0px;
+                top: 0px;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            #core_animated_pages {
+                overflow: hidden;
+                height: 100vh;
+                width: 400px;
+                /*background-color: rgb(238, 238, 238);*/
+            }
+            #title {
+                font-family: 'Leckerli One', cursive;
+                font-size: 50pt;
+                color: rgb(103, 58, 183);
+            }
+            #subtitle {
+                font-family: 'Noto Sans', sans-serif;
+                font-size: 18pt;
+                color: rgb(0, 0, 0);
+            }
+            #section5 {
+                padding: 24px;
+            }
+            #section1 {
+                padding: 60px;
+            }
+            #a {
+                padding: 40px;
+            }
+        section#section(vertical layout center center-justified fullbleed)
+            section#section1(horizontal layout center-justified center)
+                core-animated-pages#core_animated_pages.delayed0_75.animated.fadeInLeft(transitions='cross-fade-all' notap)
+                    section#screen0(active vertical layout center-justified)
+                        img(src='/images/device-0-framed-400px.png' width='400px')
+                    section#screen1(vertical layout center-justified)
+                        img(src='/images/device-1-framed-400px.png' width='400px')
+                    section#screen2(vertical layout center-justified)
+                        img(src='/images/device-2-framed-400px.png' width='400px')
+                section#section5(vertical layout center center-justified)
+                    img#img3.delayed0_25.animated.bounceInDown(src='/images/web_hi_res_256px.png' width='256px' height='256px')
+                    section#section6(vertical layout center center-justified)
+                        section#title.delayed0_5.animated.bounceInRight Listen With Me!
+                        section#subtitle.delayed0_75.animated.bounceInUp Your local Wi-Fi radio
+                    a#a.delayed1.animated.zoomInUp(href='https://play.google.com/store/apps/details?id=com.lwm.app')
+                        img#img4(alt='Get it on Google Play' src='/images/en_generic_rgb_wo_60.png')
+    script.
+        Polymer({
+            switchPhoneScreen: function () {
+                var p = this.$.core_animated_pages;
+                p.selected += 1;
+                p.selected = p.selected % 3;
+                this.async(this.switchPhoneScreen, null, 1000);
+            },
+            ready: function() {
+                this.async(this.switchPhoneScreen, null, 1000);
+            }
+        });

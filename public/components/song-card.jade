@@ -1,0 +1,49 @@
+link(rel='import', href='/static/polymer/polymer.html')
+link(rel='import', href='/static/paper-shadow/paper-shadow.html')
+link(rel='import', href='/static/paper-ripple/paper-ripple.html')
+link(rel='import', href='/static/core-image/core-image.html')
+polymer-element(name='song-card', attributes='title artist year cover_url')
+  template
+    style.
+      :host {
+          display: inline-block;
+          background: white;
+          box-sizing: border-box;
+          width: 200px;
+          /*width: 100px;*/
+          /*height: 100px;*/
+          //- margin: auto;
+          margin-top: 8px;
+          margin: 4px;
+          border-radius: 2px;
+      }
+      .text {
+          padding-top: 8px;
+          padding: 16px;
+      }
+      .title {
+          font-family: 'Noto Sans', sans-serif, bold;
+          font-size: 14pt;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+      }
+      .artist {
+          font-family: 'Noto Sans', sans-serif;
+          font-size: 12pt;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+      }
+    paper-shadow(z='1')
+      section#cover.media
+        core-image(src='{{cover_url}}' style="width: 200px; height: 200px;" sizing='cover')
+        //- core-image(src='{{cover_url}}', style='width:180px; height: 180px;', sizing='cover')
+      section.text
+        section#title.title
+          | {{title}}
+        section#artist.artist
+          | {{artist}}
+      paper-ripple(fit)
+  script.
+    Polymer();

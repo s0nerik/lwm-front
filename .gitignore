@@ -79,3 +79,5 @@ node_modules
 
 
 /public/stylesheets/*.css
+/public/components/*.html
+/views/*.html

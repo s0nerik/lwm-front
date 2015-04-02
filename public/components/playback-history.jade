@@ -1,0 +1,18 @@
+link(rel='import', href='/static/polymer/polymer.html')
+link(rel='import', href='/components/song-card.html')
+polymer-element(name='playback-history' attributes='songs')
+  template
+    //- style.
+    //-   :host {
+    //-       width: 100%;
+    //-       height: 100%;
+    //-       box-sizing: border-box;
+    //-       display: inline-block;
+    //-   }
+
+    section(horizontal around-justified layout wrap)
+      template(repeat='{{song in songs}}')
+        song-card(title="{{song.song}}" artist="{{song.artist}}" cover_url="{{song.cover_url}}")
+
+  script.
+    Polymer();
