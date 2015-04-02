@@ -12,6 +12,8 @@ block head
                 // Hide the sign-in button now that the user is authorized, for example:
                 $('#signinButton').attr('style', 'display: none');
 
+                //- url: 'http://lwm.eu01.aws.af.cm/oauth/callback/google_rest',
+
                 // Send the code to the server
                 $.ajax({
                   type: 'GET',
@@ -37,7 +39,6 @@ block head
         }
 
 block content
-    //a(href='#' class='google-btn animated bounceInDown delayed2_25')
     span#signinButton(class="animated bounceInDown delayed2_25")
         span.g-signin(
         data-callback="signinCallback"

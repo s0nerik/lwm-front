@@ -47,7 +47,7 @@ block content
         template.user = JSON.parse(localStorage.getItem("user"));
         template.page = 'history';
 
-        var client = new $.RestClient('http://localhost:8080/', {
+        var client = new $.RestClient('http://lwm.eu01.aws.af.cm/', {
             request: function (resource, options) {
                 options['beforeSend'] = function (request)
                 {
