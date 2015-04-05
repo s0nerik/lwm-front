@@ -1,0 +1,17 @@
+link(rel='import', href='/static/polymer/polymer.html')
+link(rel='import', href='/components/song-card.html')
+polymer-element(name='card-grid')
+  template
+    //- style.
+    //-   :host {
+    //-       width: 100%;
+    //-       height: 100%;
+    //-       box-sizing: border-box;
+    //-       display: inline-block;
+    //-   }
+
+    section(horizontal around-justified layout wrap)
+      content
+
+  script.
+    Polymer();

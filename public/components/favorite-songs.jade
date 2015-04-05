@@ -1,11 +1,11 @@
 link(rel='import', href='/static/polymer/polymer.html')
 link(rel='import', href='/components/song-card.html')
 link(rel='import', href='/components/card-grid.html')
-polymer-element(name='playback-history' attributes='songs')
+polymer-element(name='favorite-songs' attributes='songs')
   template
     card-grid
       template(repeat='{{song in songs}}')
         song-card(title="{{song.title}}" artist="{{song.artist.name}}" cover_url="{{song.album.coverUrl}}")
 
   script.
-    Polymer('playback-history');
+    Polymer('favorite-songs');
