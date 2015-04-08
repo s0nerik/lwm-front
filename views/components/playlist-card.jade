@@ -1,0 +1,41 @@
+link(rel='import', href='/static/polymer/polymer.html')
+link(rel='import', href='/static/paper-shadow/paper-shadow.html')
+link(rel='import', href='/static/paper-ripple/paper-ripple.html')
+link(rel='import', href='/static/core-image/core-image.html')
+polymer-element(name='playlist-card', attributes='title')
+  template
+    style.
+      :host {
+          display: inline-block;
+          background: white;
+          box-sizing: border-box;
+          width: 400px;
+          height: 800px;
+          /*width: 100px;*/
+          /*height: 100px;*/
+          //- margin: auto;
+          //- margin-top: 8px;
+          margin-left: 8px;
+          margin-top: 16px;
+          border-radius: 2px;
+      }
+      .text {
+          padding-top: 8px;
+          padding: 16px;
+      }
+      .title {
+          font-family: 'Noto Sans', sans-serif, bold;
+          font-size: 14pt;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+      }
+    paper-shadow(z='1')
+      section.text
+        section#title.title
+          | {{title}}
+        section#content(style="overflow:auto;")
+          content
+      paper-ripple(fit)
+  script.
+    Polymer();
