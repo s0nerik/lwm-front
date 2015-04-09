@@ -3,13 +3,13 @@ link(rel='import', href='/static/core-list/core-list.html')
 link(rel='import', href='/components/playlist-card.html')
 polymer-element(name='user-playlists', attributes='playlists')
   template
-    segment(layout, horizontal, wrap)
-      template(repeat='{{playlist in playlists}}')
-        playlist-card(title='{{playlist.name}}')
-          core-list#list(data='{{playlist.songs}}', flex)
-            template
-              section#title
-              | {{model.title}}
+    | Coming soon...
+    //- template(repeat='{{playlist in playlists}}')    
+      //- playlist-card(title='{{playlist.name}}')
+      //-   core-list#list(data='{{playlist.songs}}', flex)
+      //-     template
+      //-       section#title
+      //-       | {{model.title}}
 
   script.
     Polymer('user-playlists');

@@ -37,8 +37,8 @@ block content
                         favorite-songs#favorites(songs='{{favoriteSongs}}')
                     section(route="playlists")
                         user-playlists#playlists(playlists='{{userPlaylists}}')
-                    section#settings(route="settings")
-                        h1 Settings
+                    section(route="settings")
+                        user-settings#settings(user='{{user}}')
                 #spinner-layout(horizontal layout center center-justified)
                     paper-spinner#spinner
 
@@ -94,10 +94,12 @@ block content
                         });
                         break;
                     case "settings":
-                        client.me.read().done(function (data, textStatus, xhrObject) {
-                            console.log(data);
-                            $("#settings").html("<settings-card title='Station settings'><paper-input label='Station name' floatingLabel='true'></paper-input></settings-card>")
-                        });
+                        //- $("#spinner").attr("active", "");
+                        //- client.me.read().done(function (data, textStatus, xhrObject) {
+                        //-     console.log(data);
+                        //-     $("#spinner").removeAttr("active");
+                        //-     template.userSettings = data.settings;
+                        //- });
                         break;
                 }
 
