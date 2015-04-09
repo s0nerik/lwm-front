@@ -20,7 +20,12 @@ polymer-element(name='user-settings', attributes='user')
   script.
     Polymer('user-settings', {
       ready: function() {
-        this.stationName = this.user.settings.stationName;
+        if (this.user.settings != null) {
+          this.stationName = this.user.settings.stationName;
+        } else {
+          this.stationName = "";
+        }
+        
         this.$.stationNameInput.click();
       },
       saveClicked: function () {
