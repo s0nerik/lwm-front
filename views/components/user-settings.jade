@@ -26,7 +26,7 @@ polymer-element(name='user-settings', attributes='user')
           this.stationName = "";
         }
         
-        this.$.stationNameInput.click();
+        this.$.stationNameInput.focus();
       },
       saveClicked: function () {
         if (this.user.settings == null) {

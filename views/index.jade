@@ -12,12 +12,10 @@ block head
                 // Hide the sign-in button now that the user is authorized, for example:
                 $('#signinButton').attr('style', 'display: none');
 
-                //- url: 'http://lwm.eu01.aws.af.cm/oauth/callback/google_rest',
-
                 // Send the code to the server
                 $.ajax({
                   type: 'GET',
-                  url: 'http://localhost:8080/oauth/callback/google_rest',
+                  url: 'http://lwm.eu01.aws.af.cm/oauth/callback/google_rest',
                   data: {
                     code: authResult['code']
                   },
@@ -38,11 +36,13 @@ block head
             }
         }
 
+        //- data-clientid="608412075734-g1rs52is4nku7k5s7g3va1fnv74inidi.apps.googleusercontent.com"
+
 block content
     span#signinButton(class="animated bounceInDown delayed2_25")
         span.g-signin(
         data-callback="signinCallback"
-        data-clientid="608412075734-g1rs52is4nku7k5s7g3va1fnv74inidi.apps.googleusercontent.com"
+        data-clientid="608412075734-fqe6562e123af87gs7udns7pv3blv7p5.apps.googleusercontent.com"
         data-cookiepolicy="single_host_origin",
         data-accesstype=offline,
         data-scope="https://www.googleapis.com/auth/plus.login")
