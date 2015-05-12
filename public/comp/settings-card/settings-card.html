@@ -1,0 +1,48 @@
+
+<link rel="import" href="/static/polymer/polymer.html"/>
+<link rel="import" href="/static/paper-shadow/paper-shadow.html"/>
+<link rel="import" href="/static/paper-ripple/paper-ripple.html"/>
+<link rel="import" href="/static/core-image/core-image.html"/>
+<polymer-element name="settings-card" attributes="title">
+  <template>
+    <style>
+      :host {
+          display: block;
+          width: 100%;
+          /*position: absolute;*/
+          /*width: 100%;*/
+          /*height: 100%;*/
+          /*box-sizing: border-box;*/
+      }
+      .text {
+          padding: 8px;
+      }
+      .title {
+          font-family: 'Noto Sans', sans-serif, bold;
+          font-size: 16pt;
+          white-space:nowrap;
+      }
+      .content {
+          font-family: 'Noto Sans', sans-serif;
+          font-size: 12pt;
+      }
+      .card {
+          display: inline-block;
+          background: white;
+          box-sizing: border-box;
+          /*width: 100px;*/
+          /*height: 100px;*/
+          margin: 16px;
+          padding: 16px;
+          border-radius: 2px;
+      }
+    </style>
+    <paper-shadow z="1" class="card">
+      <div class="title">{{title}}</div>
+      <div class="content">
+        <content></content>
+      </div>
+    </paper-shadow>
+  </template>
+  <script>Polymer();</script>
+</polymer-element>

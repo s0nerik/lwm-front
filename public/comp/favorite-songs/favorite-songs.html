@@ -1,0 +1,14 @@
+
+<link rel="import" href="/static/polymer/polymer.html"/>
+<link rel="import" href="/comp/song-card/song-card.html"/>
+<link rel="import" href="/comp/song-card/card-grid.html"/>
+<polymer-element name="favorite-songs" attributes="songs">
+  <template>
+    <card-grid>
+      <template repeat="{{song in songs}}">
+        <song-card title="{{song.title}}" artist="{{song.artist.name}}" cover_url="{{song.album.coverUrl}}"></song-card>
+      </template>
+    </card-grid>
+  </template>
+  <script>Polymer('favorite-songs');</script>
+</polymer-element>

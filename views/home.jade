@@ -3,10 +3,6 @@ extends layout
 block head
     title Welcome
     include home_elements
-    link(rel='stylesheet', href='/stylesheets/home.css')
-    script(src="/static/jquery.rest/dist/1/jquery.rest.min.js" async defer)
-    link(href='http://fonts.googleapis.com/css?family=Leckerli+One', rel='stylesheet', type='text/css')
-    link(href='http://fonts.googleapis.com/css?family=Noto+Sans', rel='stylesheet', type='text/css')
 
 block content
     template#tmpl(is='auto-binding' bind='{{user}}')
@@ -41,67 +37,3 @@ block content
                         user-settings#settings(user='{{user}}')
                 #spinner-layout(horizontal layout center center-justified)
                     paper-spinner#spinner
-
-    script.
-        var template = document.querySelector('#tmpl');
-        template.user = JSON.parse(localStorage.getItem("user"));
-        template.page = 'history';
-
-        var client = new $.RestClient('http://lwm.eu01.aws.af.cm/', {
-            request: function (resource, options) {
-                options['beforeSend'] = function (request)
-                {
-                    request.setRequestHeader("Authorization", "Bearer "+localStorage.getItem("token"));
-                };
-                return $.ajax(options);
-            },
-            stringifyData: true
-        });
-        client.add('me');
-        client.add('history');
-        client.add('favorites');
-        client.add('playlists');
-
-        template.selectAction = function (e, detail) {
-            if (detail.isSelected) {
-                var selectedItem = detail.item;
-
-                switch (selectedItem.getAttribute("route")) {
-                    case "history":
-                        $("#spinner").attr("active", "");
-                        client.history.read().done(function (data, textStatus, xhrObject) {
-                            console.log(data);
-                            $("#spinner").removeAttr("active");
-                            template.historyItems = data;
-                        });
-                        break;
-                    case "favorites":
-                        $("#spinner").attr("active", "");
-                        client.favorites.read().done(function (data, textStatus, xhrObject) {
-                            console.log(data);
-                            $("#spinner").removeAttr("active");
-                            template.favoriteSongs = data;
-                        });
-                        break;
-                    case "playlists":
-                        $("#spinner").attr("active", "");
-                        client.playlists.read().done(function (data, textStatus, xhrObject) {
-                            console.log(data);
-                            $("#spinner").removeAttr("active");
-                            template.userPlaylists = data;
-                        });
-                        break;
-                    case "settings":
-                        //- $("#spinner").attr("active", "");
-                        //- client.me.read().done(function (data, textStatus, xhrObject) {
-                        //-     console.log(data);
-                        //-     $("#spinner").removeAttr("active");
-                        //-     template.userSettings = data.settings;
-                        //- });
-                        break;
-                }
-
-            }
-        }
-
-        Polymer();

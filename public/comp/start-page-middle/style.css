@@ -1,0 +1,39 @@
+:host {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box; }
+
+#section {
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+
+#core_animated_pages {
+  overflow: hidden;
+  height: 100vh;
+  width: 400px;
+  /*background-color: rgb(238, 238, 238);*/ }
+
+#title {
+  font-family: 'Leckerli One', cursive;
+  font-size: 50pt;
+  color: #673ab7; }
+
+#subtitle {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 18pt;
+  color: black; }
+
+#section5 {
+  padding: 24px; }
+
+#section1 {
+  padding: 60px; }
+
+#a {
+  padding: 40px; }
+
+/*# sourceMappingURL=style.css.map */

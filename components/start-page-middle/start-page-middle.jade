@@ -5,55 +5,17 @@ link(href='http://fonts.googleapis.com/css?family=Noto+Sans', rel='stylesheet', 
 polymer-element(name='start-page-middle')
     template
         link(rel='stylesheet', href='/static/animate.css/animate.min.css')
-        link(rel='stylesheet', href='/stylesheets/styles.css')
-        style.
-            :host {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                box-sizing: border-box;
-            }
-            #section {
-                left: 0px;
-                top: 0px;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-            }
-            #core_animated_pages {
-                overflow: hidden;
-                height: 100vh;
-                width: 400px;
-                /*background-color: rgb(238, 238, 238);*/
-            }
-            #title {
-                font-family: 'Leckerli One', cursive;
-                font-size: 50pt;
-                color: rgb(103, 58, 183);
-            }
-            #subtitle {
-                font-family: 'Noto Sans', sans-serif;
-                font-size: 18pt;
-                color: rgb(0, 0, 0);
-            }
-            #section5 {
-                padding: 24px;
-            }
-            #section1 {
-                padding: 60px;
-            }
-            #a {
-                padding: 40px;
-            }
+        link(rel='stylesheet', href='/css/app.css')
+        link(rel='stylesheet', href='/comp/start-page-middle/style.css')
         section#section(vertical layout center center-justified fullbleed)
             section#section1(horizontal layout center-justified center)
                 core-animated-pages#core_animated_pages.delayed0_75.animated.fadeInLeft(transitions='cross-fade-all' notap)
                     section#screen0(active vertical layout center-justified)
-                        img(src='/images/device-0-framed-400px.png' width='400px')
+                        img(src='/img/device-0-framed-400px.png' width='400px')
                     section#screen1(vertical layout center-justified)
-                        img(src='/images/device-1-framed-400px.png' width='400px')
+                        img(src='/img/device-1-framed-400px.png' width='400px')
                     section#screen2(vertical layout center-justified)
-                        img(src='/images/device-2-framed-400px.png' width='400px')
+                        img(src='/img/device-2-framed-400px.png' width='400px')
                 section#section5(vertical layout center center-justified)
                     img#img3.delayed0_25.animated.bounceInDown(src='/images/web_hi_res_256px.png' width='256px' height='256px')
                     section#section6(vertical layout center center-justified)

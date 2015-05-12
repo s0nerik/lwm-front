@@ -1,0 +1,14 @@
+
+<link rel="import" href="/static/polymer/polymer.html"/>
+<link rel="import" href="/components/song-card.html"/>
+<link rel="import" href="/components/card-grid.html"/>
+<polymer-element name="playback-history" attributes="items">
+  <template>
+    <card-grid>
+      <template repeat="{{item in items}}">
+        <song-card title="{{item.song.title}}" artist="{{item.song.artist.name}}" cover_url="{{item.song.album.coverUrl}}"></song-card>
+      </template>
+    </card-grid>
+  </template>
+  <script>Polymer('playback-history');</script>
+</polymer-element>

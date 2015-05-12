@@ -1,0 +1,120 @@
+body {
+  font-family: 'Noto Sans', sans-serif; }
+
+.navigation_drawer_toolbar {
+  background: #512da8;
+  color: white;
+  font-family: 'Leckerli One', cursive;
+  font-size: 20pt; }
+
+core-scaffold::shadow core-toolbar {
+  background: #673ab7;
+  font-family: 'Noto Sans', sans-serif;
+  color: white; }
+
+.drawer_username {
+  color: #ffffff;
+  z-index: 1;
+  padding-left: 16px;
+  font-size: 14pt; }
+
+.drawer-dropdown-btn {
+  color: #ffffff;
+  margin: auto;
+  margin-right: 16px; }
+
+core-scaffold core-toolbar {
+  background: #673ab7;
+  font-family: 'Noto Sans', sans-serif;
+  color: white; }
+
+#header_panel {
+  width: 256px; }
+
+#avatar {
+  width: 256px;
+  height: 256px; }
+
+#avatar_view {
+  height: 256px; }
+
+.google-btn {
+  float: right;
+  position: relative;
+  z-index: 1;
+  margin: 24px;
+  width: 246px;
+  height: 54px;
+  display: block;
+  background: url("/img/google_sign_in.png") no-repeat 0 0; }
+
+.google-btn :hover {
+  background-position: 0px -64px; }
+
+.google-btn :active {
+  background-position: 0px -128px; }
+
+.no-scrollbars {
+  overflow: hidden; }
+
+.delayed0_25 {
+  -webkit-animation-delay: 0.25s;
+  -moz-animation-delay: 0.25s;
+  animation-delay: 0.25s; }
+
+.delayed0_5 {
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  animation-delay: 0.5s; }
+
+.delayed0_75 {
+  -webkit-animation-delay: 0.75s;
+  -moz-animation-delay: 0.75s;
+  animation-delay: 0.75s; }
+
+.delayed1 {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s; }
+
+.delayed1_25 {
+  -webkit-animation-delay: 1.25s;
+  -moz-animation-delay: 1.25s;
+  animation-delay: 1.25s; }
+
+.delayed1_5 {
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  animation-delay: 1.5s; }
+
+.delayed1_75 {
+  -webkit-animation-delay: 1.75s;
+  -moz-animation-delay: 1.75s;
+  animation-delay: 1.75s; }
+
+.delayed2 {
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s; }
+
+.delayed2_25 {
+  -webkit-animation-delay: 2.25s;
+  -moz-animation-delay: 2.25s;
+  animation-delay: 2.25s; }
+
+.delayed2_5 {
+  -webkit-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
+  animation-delay: 2.5s; }
+
+.delayed2_75 {
+  -webkit-animation-delay: 2.75s;
+  -moz-animation-delay: 2.75s;
+  animation-delay: 2.75s; }
+
+.delayed3 {
+  -webkit-animation-delay: 3s;
+  -moz-animation-delay: 3s;
+  animation-delay: 3s; }
+
+/*# sourceMappingURL=app.css.map */

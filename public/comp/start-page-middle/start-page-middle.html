@@ -1,0 +1,40 @@
+
+<link rel="import" href="/static/polymer/polymer.html"/>
+<link rel="import" href="/static/core-animated-pages/core-animated-pages.html"/>
+<link href="http://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet" type="text/css"/>
+<link href="http://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" type="text/css"/>
+<polymer-element name="start-page-middle">
+  <template>
+    <link rel="stylesheet" href="/static/animate.css/animate.min.css"/>
+    <link rel="stylesheet" href="/css/app.css"/>
+    <link rel="stylesheet" href="/comp/start-page-middle/style.css"/>
+    <section id="section" vertical="vertical" layout="layout" center="center" center-justified="center-justified" fullbleed="fullbleed">
+      <section id="section1" horizontal="horizontal" layout="layout" center-justified="center-justified" center="center">
+        <core-animated-pages id="core_animated_pages" transitions="cross-fade-all" notap="notap" class="delayed0_75 animated fadeInLeft">
+          <section id="screen0" active="active" vertical="vertical" layout="layout" center-justified="center-justified"><img src="/img/device-0-framed-400px.png" width="400px"/></section>
+          <section id="screen1" vertical="vertical" layout="layout" center-justified="center-justified"><img src="/img/device-1-framed-400px.png" width="400px"/></section>
+          <section id="screen2" vertical="vertical" layout="layout" center-justified="center-justified"><img src="/img/device-2-framed-400px.png" width="400px"/></section>
+        </core-animated-pages>
+        <section id="section5" vertical="vertical" layout="layout" center="center" center-justified="center-justified"><img id="img3" src="/images/web_hi_res_256px.png" width="256px" height="256px" class="delayed0_25 animated bounceInDown"/>
+          <section id="section6" vertical="vertical" layout="layout" center="center" center-justified="center-justified">
+            <section id="title" class="delayed0_5 animated bounceInRight">Listen With Me!</section>
+            <section id="subtitle" class="delayed0_75 animated bounceInUp">Your local Wi-Fi radio</section>
+          </section><a id="a" href="https://play.google.com/store/apps/details?id=com.lwm.app" class="delayed1 animated zoomInUp"><img id="img4" alt="Get it on Google Play" src="/images/en_generic_rgb_wo_60.png"/></a>
+        </section>
+      </section>
+    </section>
+  </template>
+  <script>
+    Polymer({
+        switchPhoneScreen: function () {
+            var p = this.$.core_animated_pages;
+            p.selected += 1;
+            p.selected = p.selected % 3;
+            this.async(this.switchPhoneScreen, null, 1000);
+        },
+        ready: function() {
+            this.async(this.switchPhoneScreen, null, 1000);
+        }
+    });
+  </script>
+</polymer-element>

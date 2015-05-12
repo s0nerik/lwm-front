@@ -1,0 +1,48 @@
+
+<link rel="import" href="/static/polymer/polymer.html"/>
+<link rel="import" href="/static/core-list/core-list.html"/>
+<link rel="import" href="/static/paper-button/paper-button.html"/>
+<link rel="import" href="/components/playlist-card.html"/>
+<polymer-element name="user-settings" attributes="user">
+  <template>
+    <style>
+      paper-button[raised].colored {
+        background: #4285f4;
+        color: #fff;
+        margin-top: 24px;
+      }
+      
+    </style>
+    <settings-card title="Station settings">
+      <section layout="layout" vertical="vertical">
+        <paper-input id="stationNameInput" label="Station name" floatingLabel="true" name="stationName" value="{{stationName}}"></paper-input>
+        <paper-button raised="raised" on-click="{{saveClicked}}" class="colored">Save</paper-button>
+      </section>
+    </settings-card>
+  </template>
+  <script>
+    Polymer('user-settings', {
+      ready: function() {
+        if (this.user.settings != null) {
+          this.stationName = this.user.settings.stationName;
+        } else {
+          this.stationName = "";
+        }
+        
+        this.$.stationNameInput.focus();
+      },
+      saveClicked: function () {
+        if (this.user.settings == null) {
+          this.user.settings = {};
+        }
+        
+        this.user.settings.stationName = this.stationName;
+        
+        client.me.update(this.user).done(function (data, textStatus, xhrObject) {
+          localStorage.setItem("user", JSON.stringify(data));
+          this.user = data;
+        });
+      }
+    });
+  </script>
+</polymer-element>
