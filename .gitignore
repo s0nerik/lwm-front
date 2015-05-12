@@ -77,7 +77,10 @@ build/Release
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 
+// Generated code
+public/comp
+public/css
+public/js
 
-/public/stylesheets/*.css
-/public/components/*.html
-/views/*.html
+// Caches
+.sass-cache
